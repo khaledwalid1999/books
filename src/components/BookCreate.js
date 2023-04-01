@@ -14,7 +14,8 @@ function BookCreate({ onSubmit }) {
   return (
     <div>
       <form onSubmit={handleFormSubmit}>
-        <input value={title} type='text' onChange={handleTitleOnChange} />
+        <label>Title</label>
+        <input value={title} onChange={handleTitleOnChange} />
       </form>
     </div>
   );
