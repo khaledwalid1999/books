@@ -1,4 +1,4 @@
-function BookCard() {
-  return <div>BookCard</div>;
+function BookCard({ book }) {
+  return <div>{book}</div>;
 }
 export default BookCard;
