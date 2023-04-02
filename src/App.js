@@ -6,7 +6,7 @@ function App() {
 
   const handleCreateBook = (title) => {
     console.log(title);
-    setBooks([...books, title]);
+    setBooks([...books, { title: title }]);
     console.log(books);
   };
 

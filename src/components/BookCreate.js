@@ -12,10 +12,12 @@ function BookCreate({ onSubmit }) {
     setTitle(event.target.value);
   };
   return (
-    <div>
+    <div className='book-create'>
+      <h3>Add a Book</h3>
       <form onSubmit={handleFormSubmit}>
         <label>Title</label>
-        <input value={title} onChange={handleTitleOnChange} />
+        <input className='input' value={title} onChange={handleTitleOnChange} />
+        <button className='button'>Create</button>
       </form>
     </div>
   );
