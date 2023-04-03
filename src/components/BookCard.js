@@ -3,22 +3,17 @@ import BookEdit from "./BookEdit";
 
 function BookCard({ onUpdate, onDelete, book }) {
   const [isEdit, setIsEdit] = useState(false);
-  const handleDelete = () => {
-    onDelete(book.id);
-  };
-
   const handleToggleEdit = () => {
     setIsEdit(!isEdit);
   };
 
-  const handleOnUpdate = () => {
-    onUpdate();
-    handleToggleEdit();
+  const handleDelete = () => {
+    onDelete(book.id);
   };
 
   let content = <h3>{book.title}</h3>;
   if (isEdit) {
-    content = <BookEdit onUpdate={handleOnUpdate} book={book} />;
+    content = <BookEdit onUpdate={onUpdate} book={book} />;
   }
 
   return (
