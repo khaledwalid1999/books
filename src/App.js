@@ -6,7 +6,6 @@ function App() {
 
   const handleCreateBook = (title) => {
     const id = Math.round(Math.random() * Math.random() * 999999999);
-    console.log(title);
     setBooks([...books, { id, title }]);
     console.log(books);
   };
@@ -19,15 +18,16 @@ function App() {
   };
 
   const handleUpdateBook = (title, id) => {
+    console.log(id);
     console.log(title);
     const updatedBookList = books.map((book) => {
       if (id === book.id) {
-        return { id: book.id, title };
+        return { id: id, title };
       } else {
         return book;
       }
     });
-    setBooks([updatedBookList]);
+    setBooks(updatedBookList);
     console.log(books);
   };
 

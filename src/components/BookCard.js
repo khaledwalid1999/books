@@ -6,12 +6,19 @@ function BookCard({ onUpdate, onDelete, book }) {
   const handleDelete = () => {
     onDelete(book.id);
   };
+
   const handleToggleEdit = () => {
     setIsEdit(!isEdit);
   };
+
+  const handleOnUpdate = () => {
+    onUpdate();
+    handleToggleEdit();
+  };
+
   let content = <h3>{book.title}</h3>;
   if (isEdit) {
-    content = <BookEdit onUpdate={onUpdate} book={book} />;
+    content = <BookEdit onUpdate={handleOnUpdate} book={book} />;
   }
 
   return (

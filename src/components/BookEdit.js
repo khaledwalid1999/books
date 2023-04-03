@@ -8,7 +8,6 @@ function BookEdit({ onUpdate, book }) {
     } else {
       onUpdate(title.trim(), book.id);
     }
-    setTitle("");
   };
 
   const handleOnChange = (event) => {
