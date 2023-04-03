@@ -18,9 +18,26 @@ function App() {
     setBooks(updatedBookList);
   };
 
+  const handleUpdateBook = (title, id) => {
+    console.log(title);
+    const updatedBookList = books.map((book) => {
+      if (id === book.id) {
+        return { id: book.id, title };
+      } else {
+        return book;
+      }
+    });
+    setBooks([updatedBookList]);
+    console.log(books);
+  };
+
   return (
     <div>
-      <BookList onDelete={handleDeleteBookById} books={books} />
+      <BookList
+        onUpdate={handleUpdateBook}
+        onDelete={handleDeleteBookById}
+        books={books}
+      />
       <BookCreate onSubmit={handleCreateBook} />
     </div>
   );

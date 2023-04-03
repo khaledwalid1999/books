@@ -1,7 +1,7 @@
 import { useState } from "react";
 import BookEdit from "./BookEdit";
 
-function BookCard({ onDelete, book }) {
+function BookCard({ onUpdate, onDelete, book }) {
   const [isEdit, setIsEdit] = useState(false);
   const handleDelete = () => {
     onDelete(book.id);
@@ -11,7 +11,7 @@ function BookCard({ onDelete, book }) {
   };
   let content = <h3>{book.title}</h3>;
   if (isEdit) {
-    content = <BookEdit />;
+    content = <BookEdit onUpdate={onUpdate} book={book} />;
   }
 
   return (
