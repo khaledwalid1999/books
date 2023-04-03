@@ -5,7 +5,11 @@ function BookCreate({ onSubmit }) {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    onSubmit(title.trim());
+    if (title.trim() === "") {
+    } else {
+      onSubmit(title.trim());
+    }
+
     setTitle("");
   };
   const handleTitleOnChange = (event) => {
