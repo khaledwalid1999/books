@@ -17,12 +17,12 @@ function App() {
     setBooks(updatedBookList);
   };
 
-  const handleUpdateBook = (title, id) => {
+  const handleUpdateBook = (id, newTitle) => {
     console.log(id);
-    console.log(title);
+    console.log(newTitle);
     const updatedBookList = books.map((book) => {
       if (id === book.id) {
-        return { id: id, title };
+        return { ...book, title };
       } else {
         return book;
       }
