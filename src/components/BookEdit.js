@@ -16,7 +16,7 @@ function BookEdit({ onUpdate, book }) {
   };
 
   const handleOnFocus = () => {
-    document.getElementById("input").select();
+    document.getElementById(book.id).select();
   };
 
   return (
@@ -24,7 +24,7 @@ function BookEdit({ onUpdate, book }) {
       <label>Title</label>
       <form onSubmit={handleOnSubmit} className='book-edit'>
         <input
-          id='input'
+          id={book.id}
           value={title}
           onChange={handleOnChange}
           className='input'

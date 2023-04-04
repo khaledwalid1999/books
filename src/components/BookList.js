@@ -1,13 +1,20 @@
 import BookCard from "./BookCard";
+import { useState } from "react";
 
 function BookList({ books, onDelete, onUpdate }) {
+  const [selectedId, setSelectedId] = useState();
+  const handleOnSelect = (id) => {
+    setSelectedId(id);
+  };
   const renederedBooks = books.map((book) => {
     return (
       <BookCard
         key={book.id}
         onUpdate={onUpdate}
         onDelete={onDelete}
+        onSelect={handleOnSelect}
         book={book}
+        selectedId={selectedId}
       />
     );
   });

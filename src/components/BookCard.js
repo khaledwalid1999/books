@@ -1,11 +1,12 @@
-import { useState } from "react";
 import BookEdit from "./BookEdit";
 
-function BookCard({ onUpdate, onDelete, book }) {
-  const [isEdit, setIsEdit] = useState(false);
-
+function BookCard({ onSelect, onUpdate, onDelete, book, selectedId }) {
   const handleToggleEdit = () => {
-    setIsEdit(!isEdit);
+    if (selectedId === book.id) {
+      onSelect(0);
+    } else {
+      onSelect(book.id);
+    }
   };
 
   const handleDelete = () => {
@@ -13,13 +14,12 @@ function BookCard({ onUpdate, onDelete, book }) {
   };
 
   const handleUpdateBook = (id, title) => {
-    debugger;
-    handleToggleEdit();
+    onSelect(0);
     onUpdate(id, title);
   };
 
   let content = <h3>{book.title}</h3>;
-  if (isEdit) {
+  if (selectedId === book.id) {
     content = <BookEdit onUpdate={handleUpdateBook} book={book} />;
   }
 
