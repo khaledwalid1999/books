@@ -25,6 +25,7 @@ function BookCard({ onSelect, onUpdate, onDelete, book, selectedId }) {
 
   return (
     <div className='book-show'>
+      <img src='https//' alt='' />
       <div>{content}</div>
       <div className='actions'>
         <button className='delete' onClick={handleDelete}></button>
