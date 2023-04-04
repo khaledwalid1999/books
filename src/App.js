@@ -1,6 +1,7 @@
 import { useState } from "react";
 import BookList from "./components/BookList";
 import BookCreate from "./components/BookCreate";
+
 function App() {
   const [books, setBooks] = useState([]);
 
@@ -22,7 +23,7 @@ function App() {
     console.log(newTitle);
     const updatedBookList = books.map((book) => {
       if (id === book.id) {
-        return { ...book, title };
+        return { ...book, title: newTitle };
       } else {
         return book;
       }
