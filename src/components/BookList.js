@@ -1,4 +1,4 @@
-import BookCard from "./BookCard";
+import BookCard from "./BookShow";
 import { useState } from "react";
 
 function BookList({ books, onDelete, onUpdate }) {

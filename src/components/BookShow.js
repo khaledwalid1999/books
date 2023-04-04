@@ -28,8 +28,8 @@ function BookCard({ onSelect, onUpdate, onDelete, book, selectedId }) {
       <img src={`https://picsum.photos/seed/${book.id}300/200`} alt='books' />
       <div>{content}</div>
       <div className='actions'>
-        <button className='delete' onClick={handleDelete}></button>
         <button className='edit' onClick={handleToggleEdit}></button>
+        <button className='delete' onClick={handleDelete}></button>
       </div>
     </div>
   );
