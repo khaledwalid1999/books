@@ -1,6 +1,6 @@
 import BookEdit from "./BookEdit";
 
-function BookCard({ onSelect, onUpdate, onDelete, book, selectedId }) {
+function BookShow({ onSelect, onUpdate, onDelete, book, selectedId }) {
   const handleToggleEdit = () => {
     if (selectedId === book.id) {
       onSelect(0);
@@ -25,7 +25,7 @@ function BookCard({ onSelect, onUpdate, onDelete, book, selectedId }) {
 
   return (
     <div className='book-show'>
-      <img src={`https://picsum.photos/seed/${book.id}300/200`} alt='books' />
+      <img src={`https://picsum.photos/seed/${book.id}600/600`} alt='books' />
       <div>{content}</div>
       <div className='actions'>
         <button className='edit' onClick={handleToggleEdit}></button>
@@ -34,4 +34,4 @@ function BookCard({ onSelect, onUpdate, onDelete, book, selectedId }) {
     </div>
   );
 }
-export default BookCard;
+export default BookShow;

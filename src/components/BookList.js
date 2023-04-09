@@ -1,14 +1,17 @@
-import BookCard from "./BookShow";
-import { useState } from "react";
+import BookShow from "./BookShow";
+import BooksContext from "../context/books";
+import { useContext, useState } from "react";
 
 function BookList({ books, onDelete, onUpdate }) {
+  const { count, incrementCount } = useContext(BooksContext);
+
   const [selectedId, setSelectedId] = useState();
   const handleOnSelect = (id) => {
     setSelectedId(id);
   };
   const renederedBooks = books.map((book) => {
     return (
-      <BookCard
+      <BookShow
         key={book.id}
         onUpdate={onUpdate}
         onDelete={onDelete}
@@ -18,6 +21,12 @@ function BookList({ books, onDelete, onUpdate }) {
       />
     );
   });
-  return <div className='book-list'>{renederedBooks}</div>;
+  return (
+    <div className='book-list'>
+      {count}
+      <button onClick={incrementCount}>Click</button>
+      {renederedBooks}
+    </div>
+  );
 }
 export default BookList;
