@@ -5,6 +5,10 @@ import { useContext } from "react";
 function BookShow({ onSelect, book, selectedId }) {
   const { handleDeleteBook } = useContext(BooksContext);
 
+  const onDelete = () => {
+    handleDeleteBook(book.id);
+  };
+
   const handleToggleEdit = () => {
     if (selectedId === book.id) {
       onSelect(0);
@@ -15,7 +19,7 @@ function BookShow({ onSelect, book, selectedId }) {
 
   let content = <h3>{book.title}</h3>;
   if (selectedId === book.id) {
-    content = <BookEdit book={book} />;
+    content = <BookEdit book={(book, (onSelect = { handleToggleEdit }))} />;
   }
 
   return (
@@ -24,7 +28,7 @@ function BookShow({ onSelect, book, selectedId }) {
       <div>{content}</div>
       <div className='actions'>
         <button className='edit' onClick={handleToggleEdit}></button>
-        <button className='delete' onClick={handleDeleteBook}></button>
+        <button className='delete' onClick={onDelete}></button>
       </div>
     </div>
   );

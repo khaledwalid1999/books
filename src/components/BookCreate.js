@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import BooksContext from "../context/books";
 
-function BookCreate({ onSubmit }) {
+function BookCreate() {
   const [title, setTitle] = useState("");
-
+  const { handleCreateBook } = useContext(BooksContext);
   const handleFormSubmit = (event) => {
     event.preventDefault();
     if (title.trim() === "") {
     } else {
-      onSubmit(title.trim());
+      handleCreateBook(title.trim());
+      setTitle("");
     }
 
     setTitle("");

@@ -16,10 +16,8 @@ function Provider({ children }) {
   }, []);
 
   const handleCreateBook = async (title) => {
-    const response = await axios.post("http://localhost:3001/books", {
-      title,
-    });
-    setBooks([...books, response.data]);
+    await axios.post("http://localhost:3001/books", { title });
+    fetchBooks();
   };
 
   const handleDeleteBook = async (id) => {
@@ -28,18 +26,8 @@ function Provider({ children }) {
   };
 
   const handleUpdateBook = async (id, title) => {
-    const response = (
-      await axios.put(`http://localhost:3001/books/${id}`, { title })
-    ).data;
-
-    const updatedBookList = books.map((book) => {
-      if (id === book.id) {
-        return { ...book, ...response.data };
-      } else {
-        return book;
-      }
-    });
-    setBooks(updatedBookList);
+    await axios.put(`http://localhost:3001/books/${id}`, { title });
+    fetchBooks();
   };
 
   return (

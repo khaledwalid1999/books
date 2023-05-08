@@ -1,14 +1,17 @@
 import BooksContext from "../context/books";
 import { useState, useContext } from "react";
 
-function BookEdit({ book }) {
+function BookEdit({ book, onSelect }) {
   const [title, setTitle] = useState(book.title);
+
   const { handleUpdateBook } = useContext(BooksContext);
+
   const handleOnSubmit = (event) => {
     event.preventDefault();
     if (title.trim() === "") {
     } else {
       handleUpdateBook(book.id, title.trim());
+      onSelect(0);
     }
   };
 

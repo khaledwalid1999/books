@@ -3,8 +3,7 @@ import BooksContext from "../context/books";
 import { useContext, useState } from "react";
 
 function BookList() {
-  const { books, handleUpdateBook, handleDeleteBook } =
-    useContext(BooksContext);
+  const { books } = useContext(BooksContext);
   const [selectedId, setSelectedId] = useState();
 
   const handleOnSelect = (id) => {
@@ -14,8 +13,6 @@ function BookList() {
     return (
       <BookShow
         key={book.id}
-        onUpdate={handleUpdateBook}
-        onDelete={handleDeleteBook}
         onSelect={handleOnSelect}
         book={book}
         selectedId={selectedId}
