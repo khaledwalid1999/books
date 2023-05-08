@@ -1,6 +1,10 @@
+import BooksContext from "../context/books";
 import BookEdit from "./BookEdit";
+import { useContext } from "react";
 
-function BookShow({ onSelect, onUpdate, onDelete, book, selectedId }) {
+function BookShow({ onSelect, book, selectedId }) {
+  const { handleDeleteBook } = useContext(BooksContext);
+
   const handleToggleEdit = () => {
     if (selectedId === book.id) {
       onSelect(0);
@@ -9,18 +13,9 @@ function BookShow({ onSelect, onUpdate, onDelete, book, selectedId }) {
     }
   };
 
-  const handleDelete = () => {
-    onDelete(book.id);
-  };
-
-  const handleUpdateBook = (id, title) => {
-    onSelect(0);
-    onUpdate(id, title);
-  };
-
   let content = <h3>{book.title}</h3>;
   if (selectedId === book.id) {
-    content = <BookEdit onUpdate={handleUpdateBook} book={book} />;
+    content = <BookEdit book={book} />;
   }
 
   return (
@@ -29,7 +24,7 @@ function BookShow({ onSelect, onUpdate, onDelete, book, selectedId }) {
       <div>{content}</div>
       <div className='actions'>
         <button className='edit' onClick={handleToggleEdit}></button>
-        <button className='delete' onClick={handleDelete}></button>
+        <button className='delete' onClick={handleDeleteBook}></button>
       </div>
     </div>
   );
