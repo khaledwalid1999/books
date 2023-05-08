@@ -1,9 +1,8 @@
-import BooksContext from "../context/books";
 import BookEdit from "./BookEdit";
-import { useContext } from "react";
+import useBooksContext from "../hooks/use-books-context";
 
 function BookShow({ onSelect, book, selectedId }) {
-  const { handleDeleteBook } = useContext(BooksContext);
+  const { handleDeleteBook } = useBooksContext();
 
   const onDelete = () => {
     handleDeleteBook(book.id);

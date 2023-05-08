@@ -1,9 +1,9 @@
 import BookShow from "./BookShow";
-import BooksContext from "../context/books";
-import { useContext, useState } from "react";
+import { useState } from "react";
+import useBooksContext from "../hooks/use-books-context";
 
 function BookList() {
-  const { books } = useContext(BooksContext);
+  const { books } = useBooksContext();
   const [selectedId, setSelectedId] = useState();
 
   const handleOnSelect = (id) => {
