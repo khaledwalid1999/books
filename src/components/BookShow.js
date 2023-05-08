@@ -18,8 +18,9 @@ function BookShow({ onSelect, book, selectedId }) {
   };
 
   let content = <h3>{book.title}</h3>;
+
   if (selectedId === book.id) {
-    content = <BookEdit book={(book, (onSelect = { handleToggleEdit }))} />;
+    content = <BookEdit book={book} onSubmit={handleToggleEdit} />;
   }
 
   return (
